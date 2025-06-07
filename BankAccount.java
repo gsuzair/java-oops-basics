@@ -1,16 +1,16 @@
-public class BankAccount {
+public abstract class BankAccount {
 
     private String accountNumber;
-    private String balance;
+    protected  double balance;
     private Person owner;
 
-    public BankAccount(String accountNumber, String balance, Person owner) {
+    public BankAccount(String accountNumber, double balance, Person owner) {
         this.accountNumber = accountNumber;
         this.balance = balance;
         this.owner = owner;
     }
 
-    public String getBalance() {
+    public double getBalance() {
         return balance;
     }
 
@@ -26,11 +26,13 @@ public class BankAccount {
         this.accountNumber = accountNumber;
     }
 
-    public void setBalance(String balance) {
+    public void setBalance(double balance) {
         this.balance = balance;
     }
 
     public void setOwner(Person owner) {
         this.owner = owner;
     }
+
+    public abstract double calculateInterest();
 }
