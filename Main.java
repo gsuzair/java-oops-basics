@@ -11,5 +11,7 @@ public class Main {
         System.out.println("Owner of FD: " + fd.getOwner().getName());
         System.out.println("Interest on FD: " + fd.calculateInterest());
 
+        LoanEligible c = new Customer("Ali", "25", 1,101);
+        System.out.println("Eligible for loan: " + c.isEligibleForLoan());
     }
 }

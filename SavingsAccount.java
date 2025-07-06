@@ -1,4 +1,4 @@
-public class SavingsAccount extends BankAccount {
+public class SavingsAccount extends BankAccount implements Taxable {
     public SavingsAccount(String accNo, double balance, Person owner) {
         super(accNo, balance, owner);
     }
@@ -6,5 +6,10 @@ public class SavingsAccount extends BankAccount {
     @Override
     public double calculateInterest() {
         return balance * 0.03;
+    }
+
+    @Override
+    public double calculateTax() {
+        return getBalance() * 0.05;
     }
 }

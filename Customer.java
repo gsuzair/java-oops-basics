@@ -1,4 +1,4 @@
-public class Customer extends Person{
+public class Customer extends Person implements LoanEligible{
 
     private Integer customerId;
 
@@ -13,5 +13,10 @@ public class Customer extends Person{
 
     public Integer setCustomerId(Integer customerId) {
         return this.customerId = customerId;
+    }
+
+    @Override
+    public boolean isEligibleForLoan() {
+        return Integer.parseInt(getAge()) >= 21;
     }
 }
