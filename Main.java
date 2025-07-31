@@ -11,7 +11,27 @@ public class Main {
         System.out.println("Owner of FD: " + fd.getOwner().getName());
         System.out.println("Interest on FD: " + fd.calculateInterest());
 
-        LoanEligible c = new Customer("Ali", "25", 1,101);
+        LoanEligible c = new Customer("Ali", "25", 1, 101);
         System.out.println("Eligible for loan: " + c.isEligibleForLoan());
+
+        Customer d = new Customer("Ali", "25", 1, 101);
+        BankAccount sas = new SavingsAccount("SA123", 5000.0, d);
+
+        d.addAccount(sas);
+
+        // Cast to SavingsAccount if needed to access deposit/withdraw
+        if (sas instanceof SavingsAccount) {
+            SavingsAccount actual = (SavingsAccount) sas;
+            actual.deposit(1000);
+            actual.withdraw(300);
+        }
+
+        for (BankAccount acc : d.getAccounts()) {
+            System.out.println("Account No: " + acc.getAccountNumber());
+        }
+
+        for (Transaction t : sas.getTransactions()) {
+            System.out.println(t.getType() + " of " + t.getAmount() + " at " + t.getTimestamp());
+        }
     }
 }
